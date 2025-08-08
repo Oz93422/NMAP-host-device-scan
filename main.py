@@ -27,7 +27,7 @@ class Server:
     def scan_network(self, server_ip):
         try:
             nmap_scanner = nmap.PortScanner()
-            nmap_scanner.scan(server_ip, '1-1024')
+            nmap_scanner.scan(server_ip, '1-1024', arguments='-sT -Pn')
             if server_ip not in nmap_scanner.all_hosts():
                 print(f"Error: Host {server_ip} is not reachable or scanning failed.")
                 sys.exit(1)
@@ -135,7 +135,7 @@ class Server:
             return
 
         print(f"\n🔍 Scanning IP: {server_ip}")
-        print(f"Hashed IP (SHA256): {hash_ip(server_ip)}")
+        print(f"🔐 Hashed IP (SHA256): {hash_ip(server_ip)}")
 
         scan_data = self.scan_network(server_ip)
             
@@ -160,4 +160,5 @@ class Server:
 
 if __name__ == "__main__":
     Server().main()
+
 

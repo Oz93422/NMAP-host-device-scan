@@ -135,7 +135,7 @@ class Server:
             return
 
         print(f"\n🔍 Scanning IP: {server_ip}")
-        print(f"🔐 Hashed IP (SHA256): {hash_ip(server_ip)}")
+        print(f"Hashed IP (SHA256): {hash_ip(server_ip)}")
 
         scan_data = self.scan_network(server_ip)
             
